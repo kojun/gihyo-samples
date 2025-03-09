@@ -30,13 +30,23 @@ pip install --upgrade pip
 pip install -r requirements-v311-freezed.txt
 ```
 
-## Next.js環境構築
+## Next.js環境構築（初期作成時）
 ```
 cd ..
 npx create-next-app@14.2.3
 > What is your project name? ... web
 それ以外はそのまま選択
+
+これでwebディレクトリができてその中に初期テンプレートができるので、その後、諸々修正を加える。
 ```
+
+## Next.js環境構築（展開時）
+```
+cd web
+npm install
+これで、初期環境構築した時と同じものがインストールされる、はず。
+```
+
 ## ステップ毎の設定内容
 #### STEP1
 - LLM側

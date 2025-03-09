@@ -1,2 +1,2 @@
-export OPENAI_API_KEY=sk-proj-RhAklvAMQvNyaA5FWqbET3BlbkFJYNLwxarpfoMEJkU7sK6v
-export TAVILY_API_KEY=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
+export OPENAI_API_KEY=${MY_OPENAI_API_KEY:-dummy}
+export TAVILY_API_KEY=${MY_TAVILY_API_KEY:-dummy}
