@@ -6,7 +6,6 @@ from typing import (
 from fastapi import FastAPI
 from langchain_openai import ChatOpenAI
 from langserve import add_routes
-from langchain_core.tools import tool
 from langgraph.graph import (
     StateGraph,
     END,
