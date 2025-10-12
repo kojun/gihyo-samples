@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじアプリ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 20px 0;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        #result {
+            margin-top: 30px;
+            font-size: 3em;
+            font-weight: bold;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #666;
+            min-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎋 おみくじ 🎋</h1>
+        <button id="drawButton" onclick="drawOmikuji()">おみくじを引く</button>
+        <div id="result"></div>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        const fortunes = [
+            { result: '大吉', message: '最高の運勢です！何事もうまくいくでしょう。' },
+            { result: '中吉', message: '良い運勢です。前向きに進みましょう。' },
+            { result: '小吉', message: '穏やかな運勢です。焦らず進みましょう。' },
+            { result: '吉', message: '安定した運勢です。堅実に行動しましょう。' },
+            { result: '末吉', message: 'これから良くなる運勢です。希望を持ちましょう。' },
+            { result: '凶', message: '注意が必要です。慎重に行動しましょう。' },
+            { result: '大凶', message: '困難な時期ですが、必ず乗り越えられます。' }
+        ];
+
+        function drawOmikuji() {
+            const resultDiv = document.getElementById('result');
+            const messageDiv = document.getElementById('message');
+            const button = document.getElementById('drawButton');
+
+            button.disabled = true;
+            resultDiv.textContent = '...';
+            messageDiv.textContent = '';
+
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * fortunes.length);
+                const fortune = fortunes[randomIndex];
+
+                resultDiv.textContent = fortune.result;
+                messageDiv.textContent = fortune.message;
+                button.disabled = false;
+            }, 800);
+        }
+    </script>
+</body>
+</html>

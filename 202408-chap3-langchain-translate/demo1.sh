@@ -1,3 +1,4 @@
-#!/usr/bin/env bash -e
-. "$(dirname "$0")/common.fnc"
+#!/usr/bin/env bash
+
+# OPENAI_API_KEYが必要
 streamlit run demo1.py
