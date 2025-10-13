@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星占いアプリ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="date"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .gender-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .gender-option {
+            flex: 1;
+        }
+
+        .gender-option input[type="radio"] {
+            display: none;
+        }
+
+        .gender-option label {
+            display: block;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .gender-option input[type="radio"]:checked + label {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .gender-option label:hover {
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .zodiac-sign {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .zodiac-name {
+            text-align: center;
+            font-size: 1.5em;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .fortune {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .fortune-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .error {
+            color: #dc3545;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .error.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ 星占いアプリ ✨</h1>
+
+        <form id="horoscopeForm">
+            <div class="form-group">
+                <label for="birthdate">生年月日</label>
+                <input type="date" id="birthdate" required>
+            </div>
+
+            <div class="form-group">
+                <label>性別</label>
+                <div class="gender-group">
+                    <div class="gender-option">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">男性</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">女性</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">占う</button>
+            <div class="error" id="error"></div>
+        </form>
+
+        <div class="result" id="result">
+            <div class="zodiac-sign" id="zodiacSign"></div>
+            <div class="zodiac-name" id="zodiacName"></div>
+            <div class="fortune">
+                <div class="fortune-title">今日の運勢</div>
+                <p id="fortuneText"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const zodiacData = [
+            { name: '牡羊座', emoji: '♈', start: [3, 21], end: [4, 19] },
+            { name: '牡牛座', emoji: '♉', start: [4, 20], end: [5, 20] },
+            { name: '双子座', emoji: '♊', start: [5, 21], end: [6, 21] },
+            { name: '蟹座', emoji: '♋', start: [6, 22], end: [7, 22] },
+            { name: '獅子座', emoji: '♌', start: [7, 23], end: [8, 22] },
+            { name: '乙女座', emoji: '♍', start: [8, 23], end: [9, 22] },
+            { name: '天秤座', emoji: '♎', start: [9, 23], end: [10, 23] },
+            { name: '蠍座', emoji: '♏', start: [10, 24], end: [11, 22] },
+            { name: '射手座', emoji: '♐', start: [11, 23], end: [12, 21] },
+            { name: '山羊座', emoji: '♑', start: [12, 22], end: [1, 19] },
+            { name: '水瓶座', emoji: '♒', start: [1, 20], end: [2, 18] },
+            { name: '魚座', emoji: '♓', start: [2, 19], end: [3, 20] }
+        ];
+
+        const fortunes = {
+            male: [
+                '今日は素晴らしい一日になるでしょう。仕事での成功が期待できます。',
+                '新しい出会いがあるかもしれません。積極的に行動しましょう。',
+                '少し慎重に行動することをお勧めします。焦らず着実に進みましょう。',
+                '創造性が高まる日です。新しいアイデアを試してみてください。',
+                '人間関係が良好になります。周りの人との交流を大切にしましょう。',
+                '健康運が上昇しています。新しい運動を始めるのに良い日です。',
+                '金運が好調です。ただし、無駄遣いには注意しましょう。',
+                '直感が冴えている日です。自分の感覚を信じて行動してください。',
+                '学びの日です。新しい知識を吸収するのに最適な時期です。',
+                '冒険心が刺激される日。新しいことにチャレンジしてみましょう。',
+                'リラックスすることが大切な日です。自分の時間を大切にしましょう。',
+                '協調性が重要になります。チームワークを意識して動きましょう。'
+            ],
+            female: [
+                '輝くような一日になるでしょう。自信を持って行動してください。',
+                '恋愛運が上昇中です。素敵な出会いがあるかもしれません。',
+                '直感を大切に。あなたの感性が正しい選択へと導いてくれます。',
+                '美的センスが光る日です。おしゃれを楽しんでください。',
+                'コミュニケーション運が良好です。大切な人との時間を楽しみましょう。',
+                '自己ケアに時間を使いましょう。心と体のメンテナンスが大切です。',
+                '周囲からの評価が高まります。自然体でいることを心がけて。',
+                'クリエイティブな才能が発揮される日。表現を楽しみましょう。',
+                '友人との絆が深まる日です。楽しい時間を共有してください。',
+                '新しい趣味を始めるのに良い日です。興味のあることに挑戦を。',
+                '内面の成長に適した日。自分自身と向き合う時間を持ちましょう。',
+                '幸運が舞い込む予感。ポジティブな気持ちで過ごしましょう。'
+            ]
+        };
+
+        function getZodiacSign(month, day) {
+            for (let zodiac of zodiacData) {
+                const [startMonth, startDay] = zodiac.start;
+                const [endMonth, endDay] = zodiac.end;
+
+                if (startMonth === endMonth) {
+                    if (month === startMonth && day >= startDay && day <= endDay) {
+                        return zodiac;
+                    }
+                } else {
+                    if ((month === startMonth && day >= startDay) ||
+                        (month === endMonth && day <= endDay)) {
+                        return zodiac;
+                    }
+                }
+            }
+            return zodiacData[0];
+        }
+
+        function getRandomFortune(gender, zodiacIndex) {
+            const fortuneList = fortunes[gender];
+            const index = zodiacIndex % fortuneList.length;
+            return fortuneList[index];
+        }
+
+        document.getElementById('horoscopeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const birthdate = document.getElementById('birthdate').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const errorElement = document.getElementById('error');
+
+            if (!birthdate || !gender) {
+                errorElement.textContent = 'すべての項目を入力してください。';
+                errorElement.classList.add('show');
+                return;
+            }
+
+            errorElement.classList.remove('show');
+
+            const date = new Date(birthdate);
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+
+            const zodiac = getZodiacSign(month, day);
+            const zodiacIndex = zodiacData.findIndex(z => z.name === zodiac.name);
+            const fortune = getRandomFortune(gender, zodiacIndex);
+
+            document.getElementById('zodiacSign').textContent = zodiac.emoji;
+            document.getElementById('zodiacName').textContent = zodiac.name;
+            document.getElementById('fortuneText').textContent = fortune;
+            document.getElementById('result').classList.add('show');
+        });
+    </script>
+</body>
+</html>
