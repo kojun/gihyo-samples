@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-python3.11 -m venv venv
-. venv/bin/activate
+VERSION=3.11
+python${VERSION} -m venv venv${VERSION}
+. venv${VERSION}/bin/activate
 pip install --upgrade pip
 pip install -r requirements-v311-freezed.txt
