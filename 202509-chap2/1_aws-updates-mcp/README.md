@@ -1,25 +1,18 @@
-# AWSアップデート検索MCPサーバー
+# MCPサーバの構築例
 
 AWS What's NewのRSSフィードから、与えられたキーワードで最新のコンテンツを検索します。
 
 ## 機能
-
 - Tool: `search_aws_updates`
   - キーワードを入力すると、最新のAWSアップデートを最大3件まで検索して返す
 
+## 使い方
+- python環境セットアップ（略）
+- python aws_updates.py を実行し、エラーなくスクリプト実行状態になればOK。
+  - 確認後はctrl-Cで停止してよい。
+- 手動でMCPサーバを登録。~/.claude.jsonが更新される。
+  - claude mcp add aws-updates $(which python) $(pwd)/aws_updates.py
+
 ## 利用方法
 
-MCPホストアプリへサーバー設定を実施する
-
-```json
-{
-  "mcpServers": {
-    "aws-updates": {
-      "command": "/Absolute/path/to/sample-mcp-server/python",
-      "args": ["/Absolute/path/to/sample-mcp-server/aws_updates.py"]
-    }
-  }
-}
-```
-
-その後、MCPホストを起動して「Amazon Bedrockのアップデートを教えて」などのプロンプトを入力してみましょう。
+claude codeを起動して「Amazon Bedrockのアップデートを検索して」などと入力。

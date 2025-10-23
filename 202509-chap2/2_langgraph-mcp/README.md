@@ -1,4 +1,4 @@
-# LangGraph MCPホスト
+# MCPホスト（エージェント）をLangGraphで構築する例
 
 LangGraphで開発したMCPホストのサンプルコードです。
 
@@ -23,7 +23,5 @@ export ANTHROPIC_API_KEY=sk-xxxxx（あなたのAPIキーを入力）
 MCPホストアプリを起動する
 
 ```sh
-cd 2_langgraph-mcp
-pip install -r requirements.txt
 python langgraph-mcp.py
 ```

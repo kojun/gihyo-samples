@@ -1,1 +1,8 @@
+#共通
 mcp[cli]
+
+#langgraph用
+langgraph
+langchain
+langchain-anthropic
+langchain-mcp-adapters

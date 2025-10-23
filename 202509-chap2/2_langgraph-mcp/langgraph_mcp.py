@@ -6,7 +6,7 @@ from mcp.client.stdio import stdio_client
 
 # MCPサーバーを設定
 server_params = StdioServerParameters(
-    command="/Users/kojun/tmp/venv-3.13.3/bin/python3",
+    command="/Users/kojun/Playground/gihyo-samples/202509-chap2/venv3.13/bin/python3",
     args=["/Users/kojun/Playground/gihyo-samples/202509-chap2/1_aws-updates-mcp/aws_updates.py"]
 )
 

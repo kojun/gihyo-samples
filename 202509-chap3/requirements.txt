@@ -1,0 +1,3 @@
+# for agent.py
+strands-agents[openai]
+prompt_toolkit
