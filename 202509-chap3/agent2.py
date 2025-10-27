@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 from mcp import StdioServerParameters, stdio_client
 from prompt_toolkit import prompt
@@ -18,21 +18,12 @@ model = OpenAIModel(
 )
 
 # Fetch MCP Serverのクライアントを作成
-CA = os.getenv("SSL_CERT_FILE")
 fetch_mcp_client = MCPClient(
     lambda: stdio_client(
         StdioServerParameters(
-#            command="docker",
-#            args=["run", "-i", "--rm", "mcp/fetch"],
-            command="uvx",
-            args=["--native-tls", 
-                  "--from", "mcp-server-fetch", 
-                  "--", 
-                  "python", "-m", "mcp_server_fetch"],
-            env={
-                "REQUESTS_CA_BUNDLE": CA,
-                "SSL_CERT_FILE": CA,
-            },
+            command=sys.executable,
+            args=["-m", "mcp_server_fetch"],
+            env={**os.environ},
         )
     )
 )
