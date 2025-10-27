@@ -1,0 +1,13 @@
+[project]
+name = "202509-chap3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp>=1.19.0",
+    "mcp-server-fetch>=2025.4.7",
+    "prompt-toolkit>=3.0.52",
+    "requests>=2.32.5",
+    "strands-agents[openai]>=1.13.0",
+]
