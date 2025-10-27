@@ -43,8 +43,9 @@ seq_think_mcp_client = MCPClient(
 time_mcp_client = MCPClient(
     lambda: stdio_client(
         StdioServerParameters(
-            command="uvx",
-            args=["mcp-server-time"],
+            command=sys.executable,
+            args=["-m", "mcp_server_time"],
+            env={**os.environ},
         )
     )
 )

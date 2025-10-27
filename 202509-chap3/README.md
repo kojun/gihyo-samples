@@ -66,6 +66,12 @@ seq_think_mcp_client = MCPClient(
 )
 ```
 
+### agent4.py
+- agent5.pyのDockerバージョンだけど、ここでは使わない。
+
 ### agent5.py
 - agent3.pyに、MCP Time Serverを追加しただけのもの。
+- 元のサンプルではuvx経由での起動となっているが、微妙にMCPとの相性悪いので、mcp-server-fetchと同様、sys.executable経由で起動する。
+```
+
 
