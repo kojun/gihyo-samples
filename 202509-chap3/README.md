@@ -7,6 +7,7 @@ pythonの初期化は以下で実施。
 - uv add prompt_toolkit
 - uv add mcp
 - uv add mcp-server-fetch
+- uv add mcp-server-time
 
 ### agent.py
 - AIモデルを指定してやりとりするだけのシンプルな例。AIモデルの知識範囲でしか答えられない。外部参照とかはできない。
@@ -59,9 +60,12 @@ seq_think_mcp_client = MCPClient(
     lambda: stdio_client(
         StdioServerParameters(
             command="npx",
-            args=["@modelcontextprotocol/server-sequential-thinking"],
+            args=["-y", "@modelcontextprotocol/server-sequential-thinking"],
         )
     )
 )
 ```
+
+### agent5.py
+- agent3.pyに、MCP Time Serverを追加しただけのもの。
 

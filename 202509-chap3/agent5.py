@@ -1,4 +1,5 @@
 import os
+import sys
 
 from mcp import StdioServerParameters, stdio_client
 from prompt_toolkit import prompt
@@ -21,8 +22,9 @@ model = OpenAIModel(
 fetch_mcp_client = MCPClient(
     lambda: stdio_client(
         StdioServerParameters(
-            command="docker",
-            args=["run", "-i", "--rm", "mcp/fetch"],
+            command=sys.executable,
+            args=["-m", "mcp_server_fetch"],
+            env={**os.environ},
         )
     )
 )
@@ -31,8 +33,8 @@ fetch_mcp_client = MCPClient(
 seq_think_mcp_client = MCPClient(
     lambda: stdio_client(
         StdioServerParameters(
-            command="docker",
-            args=["run", "-i", "--rm", "mcp/sequentialthinking"],
+            command="npx",
+            args=["-y", "@modelcontextprotocol/server-sequential-thinking"],
         )
     )
 )

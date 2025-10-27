@@ -9,6 +9,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "mcp" },
     { name = "mcp-server-fetch" },
+    { name = "mcp-server-time" },
     { name = "prompt-toolkit" },
     { name = "requests" },
     { name = "ruff" },
@@ -19,6 +20,7 @@ dependencies = [
 requires-dist = [
     { name = "mcp", specifier = ">=1.19.0" },
     { name = "mcp-server-fetch", specifier = ">=2025.4.7" },
+    { name = "mcp-server-time", specifier = ">=2025.9.25" },
     { name = "prompt-toolkit", specifier = ">=3.0.52" },
     { name = "requests", specifier = ">=2.32.5" },
     { name = "ruff", specifier = ">=0.14.2" },
@@ -467,6 +469,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/02/0f/718dde44fd8b8d2792ae6011a3d2c3080440af48cee5d2ee8b7941b75e8e/mcp_server_fetch-2025.4.7.tar.gz", hash = "sha256:56279e3c55cb1e506b958ca9bb23ed4413944a6f230bca21e044aee51734fe47", size = 43587, upload-time = "2025-04-07T09:11:06.188Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a7/ae/93cb99a40be35e7557f74af73b4b2fcb54c342a35f9dc5ff3db401b3d054/mcp_server_fetch-2025.4.7-py3-none-any.whl", hash = "sha256:349b79754d9d5caeb7c3f427ef07af2a994d4c998dab33c060eb9fbeb9da8d6b", size = 8110, upload-time = "2025-04-07T09:11:05.096Z" },
+]
+
+[[package]]
+name = "mcp-server-time"
+version = "2025.9.25"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mcp" },
+    { name = "pydantic" },
+    { name = "tzdata" },
+    { name = "tzlocal" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/30/e2/08fa9615be0c91b86d0e972638169ae0769f217950c2ea4c5f3df1a144ff/mcp_server_time-2025.9.25.tar.gz", hash = "sha256:41427e33cafba09ef0e0f197a9dc33f2bc7238947fa319e0ec7d6500e2f97421", size = 30188, upload-time = "2025-09-25T21:25:57.066Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a8/81/9004bc19be15d6d5aae50f18500d865d21b0634064e78deffd8178e6a494/mcp_server_time-2025.9.25-py3-none-any.whl", hash = "sha256:5cc559709887db33bf77546c2efb0a9352c13870cc2bfaeffab1a6bd6390419b", size = 6567, upload-time = "2025-09-25T21:25:55.292Z" },
 ]
 
 [[package]]
@@ -1027,6 +1044,27 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz", hash = "sha256:ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464", size = 75949, upload-time = "2025-10-01T02:14:41.687Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/dc/9b/47798a6c91d8bdb567fe2698fe81e0c6b7cb7ef4d13da4114b41d239f65d/typing_inspection-0.4.2-py3-none-any.whl", hash = "sha256:4ed1cacbdc298c220f1bd249ed5287caa16f34d44ef4e9c3d0cbad5b521545e7", size = 14611, upload-time = "2025-10-01T02:14:40.154Z" },
+]
+
+[[package]]
+name = "tzdata"
+version = "2025.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/95/32/1a225d6164441be760d75c2c42e2780dc0873fe382da3e98a2e1e48361e5/tzdata-2025.2.tar.gz", hash = "sha256:b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9", size = 196380, upload-time = "2025-03-23T13:54:43.652Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5c/23/c7abc0ca0a1526a0774eca151daeb8de62ec457e77262b66b359c3c7679e/tzdata-2025.2-py2.py3-none-any.whl", hash = "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8", size = 347839, upload-time = "2025-03-23T13:54:41.845Z" },
+]
+
+[[package]]
+name = "tzlocal"
+version = "5.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "tzdata", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8b/2e/c14812d3d4d9cd1773c6be938f89e5735a1f11a9f184ac3639b93cef35d5/tzlocal-5.3.1.tar.gz", hash = "sha256:cceffc7edecefea1f595541dbd6e990cb1ea3d19bf01b2809f362a03dd7921fd", size = 30761, upload-time = "2025-03-05T21:17:41.549Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c2/14/e2a54fabd4f08cd7af1c07030603c3356b74da07f7cc056e600436edfa17/tzlocal-5.3.1-py3-none-any.whl", hash = "sha256:eb1a66c3ef5847adf7a834f1be0800581b683b5608e74f86ecbcef8ab91bb85d", size = 18026, upload-time = "2025-03-05T21:17:39.857Z" },
 ]
 
 [[package]]
