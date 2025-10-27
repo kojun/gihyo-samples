@@ -1,0 +1,30 @@
+{
+  // 実行系：このワークスペースは .venv を使う
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  // 解析系：Pylance に「ここも import 探索してOK」と教える
+  "python.analysis.extraPaths": ["${workspaceFolder}"],
+
+  // Pylance（静音＆軽量）
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": false,
+
+  // フォーマッタ（Ruff 推奨：速い＆一体運用）
+  "editor.defaultFormatter": "charliermarsh.ruff",
+  "editor.formatOnSave": true,
+  "ruff.enable": true,
+  "python.linting.enabled": false,
+
+  // .env を読み込む（APIキーや社内CA）
+  "python.envFile": "${workspaceFolder}/.env",
+
+  // ノイズ/負荷を減らす
+  "files.watcherExclude": {
+    "**/.venv/**": true,
+    "**/__pycache__/**": true
+  },
+  "search.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true
+  }
+}

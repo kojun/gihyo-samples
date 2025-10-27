@@ -14,6 +14,7 @@ pythonの初期化は以下で実施。
 ### agent2.py
 - Fetch MCP Serverを使って、指定したURLから情報を取得できるようにした例。
 - 元のサンプルはdocker経由でmcp/fetchを起動しているが、例によってnetskopeの壁に阻まれるため、サンプルのままでは動かない。以下のように修正し、uv run agent2.py で動かせばOK（uv経由じゃなくても動くはず）。
+- 事前に uv add mcp mcp-server-fetch しておく（uvを使う場合）。
 - 環境変数 REQUESTS_CA_BUNDLE や SSL_CERT_FILE は設定した状態で動かすこと。
 ```
 << BEFORE >>
@@ -36,4 +37,31 @@ fetch_mcp_client = MCPClient(
         )
     )
 )
+```
+
+### agent3.py
+- mcp/fetchとmcp/sequentialthinkingを組み合わせた例。
+- 入力例：「https://tech.enechange.co.jp/entry/2025/06/11/173107 を全て読んで、段階的に考えてレビューして」
+- ソースの修正は、fetch_mcp_clientについては agent2.py と同様。もうひとつの seq_think_mcp_client については、dockerではやはり証明書エラーになるので、同等のNode.js部品を用いる。
+```
+<< BEFORE >>
+seq_think_mcp_client = MCPClient(
+    lambda: stdio_client(
+        StdioServerParameters(
+            command="docker",
+            args=["run", "-i", "--rm", "mcp/sequentialthinking"],
+        )
+    )
+)
+
+<< AFTER >>
+seq_think_mcp_client = MCPClient(
+    lambda: stdio_client(
+        StdioServerParameters(
+            command="npx",
+            args=["@modelcontextprotocol/server-sequential-thinking"],
+        )
+    )
+)
+```
 

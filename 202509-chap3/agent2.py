@@ -1,4 +1,5 @@
-import os, sys
+import os
+import sys
 
 from mcp import StdioServerParameters, stdio_client
 from prompt_toolkit import prompt
