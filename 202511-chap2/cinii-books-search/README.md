@@ -28,4 +28,15 @@ URL: https://support.nii.ac.jp/ja/cib/api/b_opensearch
 ```
 この実装計画をplans/cinii-books-download-json.mdに記録してください
 ```
-## 
+## カスタムスラッシュコマンド
+頻繁に使用するプロンプトは、カスタムスラッシュコマンドとして登録可能。.claude/commandsディレクトリにMarkdownを配置すると、独自コマンドとして使える。プロンプトで、
+```
+ruff, mypy, pytestを利用したコードの品質を確認・修正・テストするプロンプトを .cloaude/commands/quality-fix.md に作成してください。
+```
+とか書くと、.claude/commands/quality-fix.mdがいい感じで作成される。
+## Conext7 MCPサーバの活用
+```
+claude mcp add -s project context7 -- npx -y @upstash/context7-mcp
+```
+これで、プロジェクトスコープでContext7が使えるようになる。プロンプトで、「Use context7」っていう文言を含めると、なんか魔法のようなことが起きるようだ。
+
