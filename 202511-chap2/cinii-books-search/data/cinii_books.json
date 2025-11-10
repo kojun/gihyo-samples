@@ -1,0 +1,168 @@
+{
+  "@id": "https://ci.nii.ac.jp/books/opensearch/search?year_from=2015&author=%40driller&format=json",
+  "@graph": [
+    {
+      "title": "CiNii Books OpenSearch - 2015 @driller",
+      "description": "CiNii Books OpenSearch - 2015 @driller",
+      "link": {
+        "@id": "https://ci.nii.ac.jp/books/opensearch/search?year_from=2015&author=%40driller&format=json"
+      },
+      "items": [
+        {
+          "title": "Pythonインタラクティブ・データビジュアライゼーション入門 : Plotly/Dashによるデータ可視化とWebアプリ構築",
+          "link": {
+            "@id": "https://ci.nii.ac.jp/ncid/BC04407493"
+          },
+          "@id": "https://ci.nii.ac.jp/ncid/BC04407493",
+          "@type": "item",
+          "rdfs:seeAlso": {
+            "@id": "https://ci.nii.ac.jp/ncid/BC04407493.json"
+          },
+          "dc:date": "2020",
+          "dc:creator": "@driller, 小川英幸, 古木友子著",
+          "dc:publisher": [
+            "朝倉書店"
+          ],
+          "prism:publicationDate": "2020",
+          "dcterms:hasPart": [
+            {
+              "@id": "urn:isbn:9784254122589"
+            }
+          ],
+          "cinii:ownerCount": "125"
+        },
+        {
+          "title": "Pythonインタラクティブ・データビジュアライゼーション入門 : Plotly/Dashによるデータ可視化とWebアプリ構築",
+          "link": {
+            "@id": "https://ci.nii.ac.jp/ncid/BC04342150"
+          },
+          "@id": "https://ci.nii.ac.jp/ncid/BC04342150",
+          "@type": "item",
+          "rdfs:seeAlso": {
+            "@id": "https://ci.nii.ac.jp/ncid/BC04342150.json"
+          },
+          "dc:date": "2020",
+          "dc:creator": "@driller, 小川英幸, 古木友子著",
+          "dc:publisher": [
+            "朝倉書店"
+          ],
+          "prism:publicationDate": "2020",
+          "dcterms:hasPart": [
+            {
+              "@id": "urn:isbn:9784254122589"
+            }
+          ],
+          "cinii:ownerCount": "11"
+        },
+        {
+          "title": "PythonユーザのためのJupyter「実践」入門",
+          "link": {
+            "@id": "https://ci.nii.ac.jp/ncid/BC01982655"
+          },
+          "@id": "https://ci.nii.ac.jp/ncid/BC01982655",
+          "@type": "item",
+          "rdfs:seeAlso": {
+            "@id": "https://ci.nii.ac.jp/ncid/BC01982655.json"
+          },
+          "dc:date": "2020",
+          "dc:creator": "池内孝啓, 片柳薫子, @driller著",
+          "dc:publisher": [
+            "技術評論社"
+          ],
+          "prism:publicationDate": "2020",
+          "dcterms:hasPart": [
+            {
+              "@id": "urn:isbn:9784297115685"
+            }
+          ],
+          "cinii:ownerCount": "125"
+        },
+        {
+          "title": "Pythonデータ分析実践ハンドブック : 実務で使えるデータ加工のテクニック",
+          "link": {
+            "@id": "https://ci.nii.ac.jp/ncid/BD03915929"
+          },
+          "@id": "https://ci.nii.ac.jp/ncid/BD03915929",
+          "@type": "item",
+          "rdfs:seeAlso": {
+            "@id": "https://ci.nii.ac.jp/ncid/BD03915929.json"
+          },
+          "dc:date": "2023",
+          "dc:creator": "寺田学 [ほか] 著",
+          "dc:publisher": [
+            "インプレス"
+          ],
+          "prism:publicationDate": "2023",
+          "dcterms:hasPart": [
+            {
+              "@id": "urn:isbn:9784295017745"
+            }
+          ],
+          "cinii:ownerCount": "72"
+        },
+        {
+          "title": "PythonユーザのためのJupyter「実践」入門",
+          "link": {
+            "@id": "https://ci.nii.ac.jp/ncid/BB24459845"
+          },
+          "@id": "https://ci.nii.ac.jp/ncid/BB24459845",
+          "@type": "item",
+          "rdfs:seeAlso": {
+            "@id": "https://ci.nii.ac.jp/ncid/BB24459845.json"
+          },
+          "dc:date": "2017",
+          "dc:creator": "池内孝啓 [ほか] 著",
+          "dc:publisher": [
+            "技術評論社"
+          ],
+          "prism:publicationDate": "2017",
+          "dcterms:hasPart": [
+            {
+              "@id": "urn:isbn:9784774192239"
+            }
+          ],
+          "cinii:ownerCount": "190"
+        },
+        {
+          "title": "ワンランク上を目指す人のためのPython実践活用ガイド : 自動化スクリプト、テキスト処理、統計学の初歩をマスター",
+          "link": {
+            "@id": "https://ci.nii.ac.jp/ncid/BC13220380"
+          },
+          "@id": "https://ci.nii.ac.jp/ncid/BC13220380",
+          "@type": "item",
+          "rdfs:seeAlso": {
+            "@id": "https://ci.nii.ac.jp/ncid/BC13220380.json"
+          },
+          "dc:date": "2022",
+          "dc:creator": "鈴木たかのり[著] ; 野呂浩良[著] ; 大澤文孝[著] ; 上野貴史[著] ; 貞光九月[著] ; 石本敦夫[著] ; くーむ[著] ; @driller[著] ; 片柳薫子[著] ; 清水川貴之[著] ; 清原弘貴[著] ; tell‐k[著] ; 近松直弘[著] ; 岩崎圭[著] ; 松井健一[著] ; 馬場真哉[著]",
+          "dc:publisher": [
+            "技術評論社"
+          ],
+          "prism:publicationDate": "2022",
+          "dcterms:hasPart": [
+            {
+              "@id": "urn:isbn:9784297126391"
+            }
+          ],
+          "cinii:ownerCount": "4"
+        }
+      ],
+      "@id": "https://ci.nii.ac.jp/books/opensearch/search?year_from=2015&author=%40driller&format=json",
+      "@type": "channel",
+      "dc:date": "2025-11-10T17:49:22+09:00",
+      "opensearch:totalResults": "6",
+      "opensearch:startIndex": "0",
+      "opensearch:itemsPerPage": "6"
+    }
+  ],
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "opensearch": "http://a9.com/-/spec/opensearch/1.1/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "prism": "http://prismstandard.org/namespaces/basic/2.0/",
+    "cinii": "http://ci.nii.ac.jp/ns/1.0/",
+    "@vocab": "http://purl.org/rss/1.0/"
+  }
+}
